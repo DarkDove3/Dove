@@ -1,0 +1,32 @@
+{
+    "Outputs": {
+        "DevicesTableName": {
+            "Value": {
+                "Ref": "DevicesTable"
+            }
+        }
+    },
+    "Resources": {
+        "DevicesTable": {
+            "Properties": {
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "device_id",
+                        "AttributeType": "S"
+                    }
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": "device_id",
+                        "KeyType": "HASH"
+                    }
+                ],
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": 5,
+                    "WriteCapacityUnits": 5
+                }
+            },
+            "Type": "AWS::DynamoDB::Table"
+        }
+    }
+}
